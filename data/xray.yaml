@@ -1,0 +1,27 @@
+path: ./datasets/xray  # dataset root dir
+train: images/train/   # train images (relative to 'path') 118287 images
+val: images/val/  # val images (relative to 'path') 5000 images
+test: images/test/   # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
+
+# Classes
+names:
+  0: pneumonia
+
+
+# # Download script/URL (optional)
+# download: |
+#   from utils.general import download, Path
+
+
+#   # Download labels
+#   #segments = True  # segment or box labels
+#   #dir = Path(yaml['path'])  # dataset root dir
+#   #url = 'https://github.com/WongKinYiu/yolov7/releases/download/v0.1/'
+#   #urls = [url + ('coco2017labels-segments.zip' if segments else 'coco2017labels.zip')]  # labels
+#   #download(urls, dir=dir.parent)
+
+#   # Download data
+#   #urls = ['http://images.cocodataset.org/zips/train2017.zip',  # 19G, 118k images
+#   #        'http://images.cocodataset.org/zips/val2017.zip',  # 1G, 5k images
+#   #        'http://images.cocodataset.org/zips/test2017.zip']  # 7G, 41k images (optional)
+#   #download(urls, dir=dir / 'images', threads=3)
