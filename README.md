@@ -100,14 +100,45 @@ python3 train_dual.py  --weights=./pretrain/yolov9-c.pt --cfg=./models/detect/yo
 python inference.py
 ```
 
-|  |  |  |
+|  Pytorch| Pytorch | Pytorch |
 | ------ | ------ | ------ |
 | ![](docs/6.jpg) | ![](docs/58.jpg)  | ![](docs/150.jpg)  |
 
 
 ### 4.YOLOv9 端到端TensorRT加速推理C++实现
 
-TODO
++ Pytorch转ONNX
+
+```shell
+python export.py --data=./data/xray.yaml --weights=./runs/train/exp/weights/last.pt --opset=13 --include=onnx --simplify
+```
+
++ 添加EfficientNMS plugin
+
+```shell
+python onnx_add_nms_op.py
+```
+
+再元onnx模型中插入EfficientNMS Plugin节点：
+![](docs/add_nms.png)
+
++ TensorRT序列化Engine
+
+```shell
+trtexec --onnx=last_nms.onnx --saveEngine=yolov9-c.plan --workspace=3000 --verbose
+```
+![](docs/trtexec.png)
+
+恭喜你，TensorRT序列化Engine成功!
+
++ Win10下C++实现端到端的TensorRT推断
+
+我们的代码存放在`tensorrt`文件夹下(在TensorRT 8.2和TensorRT8.6测试），相同图片在TensorRT C++的推理结果基本一致
+
+
+| TensorRT | TensorRT |  TensorRT|
+| ------ | ------ | ------ |
+| ![](docs/trt_6.jpg) | ![](docs/trt-58.jpg)  | ![](docs/trt-150.jpg)  |
 
 
 ### 5.YOLOv9安卓手机部署
