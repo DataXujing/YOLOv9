@@ -143,8 +143,21 @@ trtexec --onnx=last_nms.onnx --saveEngine=yolov9-c.plan --workspace=3000 --verbo
 
 ### 5.YOLOv9安卓手机部署
 
-TODO
++ 首先我们在windows下使用ncnn进行调用，该部分所有的代码在`ncnn`文件夹下，关于安卓手机端部署的代码，可以参考我们的另一个项目：<https://github.com/DataXujing/ncnn_android_yolov9>
 
+| NCNN-FP32                 | NCNN-FP32                  | NCNN-FP32                   |
+| ------------------------- | -------------------------- | --------------------------- |
+| ![](docs/ncnn_fp32_6.jpg) | ![](docs/ncnn_fp32_58.jpg) | ![](docs/ncnn_fp32_150.jpg) |
+
+| NCNN-FP16                 | NCNN-FP16                  | NCNN-FP16                   |
+| ------------------------- | -------------------------- | --------------------------- |
+| ![](docs/ncnn_fp16_6.jpg) | ![](docs/ncnn_fp16_58.jpg) | ![](docs/ncnn_fp16_150.jpg) |
+
+> 我们也实现了YOLOv9-c的ncnn下的int8量化，但是目前还存在问题：<https://github.com/Tencent/ncnn/issues/5362>
+
+小米手机下的部署：
+
+TODO
 
 ### 参考
 
