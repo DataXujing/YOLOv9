@@ -119,7 +119,7 @@ python export.py --data=./data/xray.yaml --weights=./runs/train/exp/weights/last
 python onnx_add_nms_op.py
 ```
 
-再元onnx模型中插入EfficientNMS Plugin节点：
+在原onnx模型中插入EfficientNMS Plugin节点：
 ![](docs/add_nms.png)
 
 + TensorRT序列化Engine
