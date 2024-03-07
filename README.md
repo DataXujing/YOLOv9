@@ -157,7 +157,7 @@ trtexec --onnx=last_nms.onnx --saveEngine=yolov9-c.plan --workspace=3000 --verbo
 
 小米手机下的部署：
 
-TODO
+![](docs/video1.gif)
 
 ### 参考
 
